@@ -1,0 +1,5 @@
+{
+  "gui.ae2wideterminal.switch_to_wide": "切换到宽屏模式",
+  "gui.ae2wideterminal.switch_to_narrow": "切换到窄屏模式",
+  "gui.ae2wideterminal.insufficient_width": "窗口空间不足，当前临时使用窄屏"
+}

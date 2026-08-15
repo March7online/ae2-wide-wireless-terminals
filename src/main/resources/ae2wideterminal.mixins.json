@@ -4,9 +4,10 @@
   "package": "com.ae2wideterminal.mixin",
   "compatibilityLevel": "JAVA_17",
   "refmap": "ae2wideterminal.refmap.json",
-  "client": [],
+  "client": [
+    "client.InitScreensMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }
 }
-

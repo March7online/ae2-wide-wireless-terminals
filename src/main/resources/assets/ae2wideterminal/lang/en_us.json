@@ -1,0 +1,6 @@
+{
+  "gui.ae2wideterminal.switch_to_wide": "Switch to wide mode",
+  "gui.ae2wideterminal.switch_to_narrow": "Switch to narrow mode",
+  "gui.ae2wideterminal.insufficient_width": "Not enough window space; narrow mode is active temporarily"
+}
+

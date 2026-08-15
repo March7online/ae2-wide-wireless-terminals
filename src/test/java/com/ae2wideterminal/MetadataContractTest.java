@@ -34,7 +34,8 @@ class MetadataContractTest {
 
         JsonObject mixins = JsonParser.parseString(readOrEmpty(MIXINS_JSON)).getAsJsonObject();
         assertTrue(mixins.has("client"));
-        assertEquals(0, mixins.getAsJsonArray("client").size());
+        assertEquals(1, mixins.getAsJsonArray("client").size());
+        assertEquals("client.InitScreensMixin", mixins.getAsJsonArray("client").get(0).getAsString());
         assertFalse(mixins.has("mixins"));
     }
 
