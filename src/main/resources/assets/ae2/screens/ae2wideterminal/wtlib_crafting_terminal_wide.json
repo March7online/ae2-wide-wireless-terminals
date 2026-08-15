@@ -1,0 +1,117 @@
+{
+  "$schema": "../wtlib/schema.json",
+  "includes": ["../wtlib/wireless_crafting_terminal.json"],
+  "slots": {
+    "PLAYER_INVENTORY": {
+      "left": 89,
+      "bottom": 82,
+      "grid": "BREAK_AFTER_9COLS"
+    },
+    "PLAYER_HOTBAR": {
+      "left": 89,
+      "bottom": 24,
+      "grid": "HORIZONTAL"
+    },
+    "CRAFTING_GRID": {
+      "left": 161,
+      "bottom": 165,
+      "grid": "BREAK_AFTER_3COLS"
+    },
+    "CRAFTING_RESULT": {
+      "left": 255,
+      "bottom": 147
+    },
+    "AE2WTLIB_HELMET": {
+      "left": 89,
+      "bottom": 165
+    },
+    "AE2WTLIB_CHESTPLATE": {
+      "left": 89,
+      "bottom": 147
+    },
+    "AE2WTLIB_LEGGINGS": {
+      "left": 89,
+      "bottom": 129
+    },
+    "AE2WTLIB_BOOTS": {
+      "left": 89,
+      "bottom": 111
+    },
+    "AE2WTLIB_OFFHAND": {
+      "left": 161,
+      "bottom": 111
+    }
+  },
+  "text": {
+    "crafting_grid_title": {
+      "text": {
+        "translate": "gui.ae2.CraftingTerminal"
+      },
+      "position": {
+        "left": 89,
+        "bottom": 175
+      }
+    },
+    "player_inventory_title": {
+      "text": {
+        "translate": "container.inventory"
+      },
+      "position": {
+        "left": 89,
+        "bottom": 92
+      }
+    }
+  },
+  "terminalStyle": {
+    "slotsPerRow": 18,
+    "header": {
+      "texture": "guis/ae2wideterminal/crafting_wide.png",
+      "srcRect": [0, 0, 357, 17]
+    },
+    "firstRow": {
+      "texture": "guis/ae2wideterminal/crafting_wide.png",
+      "srcRect": [0, 17, 357, 18]
+    },
+    "row": {
+      "texture": "guis/ae2wideterminal/crafting_wide.png",
+      "srcRect": [0, 35, 357, 18]
+    },
+    "lastRow": {
+      "texture": "guis/ae2wideterminal/crafting_wide.png",
+      "srcRect": [0, 53, 357, 18]
+    },
+    "bottom": {
+      "texture": "guis/ae2wideterminal/wtlib_extras_wide.png",
+      "srcRect": [0, 0, 362, 177]
+    }
+  },
+  "widgets": {
+    "scrollbar": {
+      "left": 337,
+      "top": 18
+    },
+    "craftingStatus": {
+      "left": 332,
+      "top": -4,
+      "hideEdge": true
+    },
+    "search": {
+      "left": 80,
+      "top": 4,
+      "width": 251,
+      "height": 12
+    },
+    "clearCraftingGrid": {
+      "left": 216,
+      "bottom": 167
+    },
+    "clearToPlayerInv": {
+      "left": 226,
+      "bottom": 167
+    },
+    "player": {
+      "left": 133,
+      "bottom": 99
+    }
+  }
+}

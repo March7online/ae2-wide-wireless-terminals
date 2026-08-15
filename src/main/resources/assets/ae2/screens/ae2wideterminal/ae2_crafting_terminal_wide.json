@@ -1,0 +1,93 @@
+{
+  "$schema": "../schema.json",
+  "includes": ["../terminals/crafting_terminal.json"],
+  "slots": {
+    "PLAYER_INVENTORY": {
+      "left": 89,
+      "bottom": 82,
+      "grid": "BREAK_AFTER_9COLS"
+    },
+    "PLAYER_HOTBAR": {
+      "left": 89,
+      "bottom": 24,
+      "grid": "HORIZONTAL"
+    },
+    "CRAFTING_GRID": {
+      "left": 118,
+      "bottom": 154,
+      "grid": "BREAK_AFTER_3COLS"
+    },
+    "CRAFTING_RESULT": {
+      "left": 212,
+      "bottom": 136
+    }
+  },
+  "text": {
+    "player_inventory_title": {
+      "text": {
+        "translate": "container.inventory"
+      },
+      "position": {
+        "left": 89,
+        "bottom": 93
+      }
+    },
+    "crafting_grid_title": {
+      "text": {
+        "translate": "gui.ae2.CraftingTerminal"
+      },
+      "position": {
+        "left": 89,
+        "bottom": 168
+      }
+    }
+  },
+  "terminalStyle": {
+    "slotsPerRow": 18,
+    "header": {
+      "texture": "guis/ae2wideterminal/crafting_wide.png",
+      "srcRect": [0, 0, 357, 17]
+    },
+    "firstRow": {
+      "texture": "guis/ae2wideterminal/crafting_wide.png",
+      "srcRect": [0, 17, 357, 18]
+    },
+    "row": {
+      "texture": "guis/ae2wideterminal/crafting_wide.png",
+      "srcRect": [0, 35, 357, 18]
+    },
+    "lastRow": {
+      "texture": "guis/ae2wideterminal/crafting_wide.png",
+      "srcRect": [0, 53, 357, 18]
+    },
+    "bottom": {
+      "texture": "guis/ae2wideterminal/crafting_wide.png",
+      "srcRect": [0, 71, 357, 170]
+    }
+  },
+  "widgets": {
+    "scrollbar": {
+      "left": 337,
+      "top": 18
+    },
+    "craftingStatus": {
+      "left": 332,
+      "top": -4,
+      "hideEdge": true
+    },
+    "search": {
+      "left": 80,
+      "top": 4,
+      "width": 251,
+      "height": 12
+    },
+    "clearCraftingGrid": {
+      "left": 173,
+      "bottom": 156
+    },
+    "clearToPlayerInv": {
+      "left": 183,
+      "bottom": 156
+    }
+  }
+}
