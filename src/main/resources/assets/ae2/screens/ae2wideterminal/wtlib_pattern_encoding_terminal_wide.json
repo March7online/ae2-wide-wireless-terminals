@@ -84,22 +84,32 @@
     "slotsPerRow": 18,
     "header": {
       "texture": "guis/ae2wideterminal/pattern_wide.png",
+      "textureWidth": 357,
+      "textureHeight": 256,
       "srcRect": [0, 0, 357, 17]
     },
     "firstRow": {
       "texture": "guis/ae2wideterminal/pattern_wide.png",
+      "textureWidth": 357,
+      "textureHeight": 256,
       "srcRect": [0, 17, 357, 18]
     },
     "row": {
       "texture": "guis/ae2wideterminal/pattern_wide.png",
+      "textureWidth": 357,
+      "textureHeight": 256,
       "srcRect": [0, 35, 357, 18]
     },
     "lastRow": {
       "texture": "guis/ae2wideterminal/pattern_wide.png",
+      "textureWidth": 357,
+      "textureHeight": 256,
       "srcRect": [0, 53, 357, 18]
     },
     "bottom": {
       "texture": "guis/ae2wideterminal/pattern_wide.png",
+      "textureWidth": 357,
+      "textureHeight": 256,
       "srcRect": [0, 71, 357, 178]
     }
   },
@@ -168,9 +178,9 @@
       "hideEdge": true
     },
     "search": {
-      "left": 80,
+      "left": 242,
       "top": 4,
-      "width": 251,
+      "width": 89,
       "height": 12
     },
     "modeTabButton0": {

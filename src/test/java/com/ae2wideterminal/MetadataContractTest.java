@@ -8,7 +8,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.stream.StreamSupport;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import org.junit.jupiter.api.Test;
@@ -34,9 +36,17 @@ class MetadataContractTest {
 
         JsonObject mixins = JsonParser.parseString(readOrEmpty(MIXINS_JSON)).getAsJsonObject();
         assertTrue(mixins.has("client"));
-        assertEquals(1, mixins.getAsJsonArray("client").size());
-        assertEquals("client.InitScreensMixin", mixins.getAsJsonArray("client").get(0).getAsString());
+        JsonArray clientMixins = mixins.getAsJsonArray("client");
+        assertEquals(3, clientMixins.size());
+        assertTrue(contains(clientMixins, "client.InitScreensMixin"));
+        assertTrue(contains(clientMixins, "client.EncodingModePanelPositionMixin"));
+        assertTrue(contains(clientMixins, "client.MEStorageScreenSearchAccess"));
         assertFalse(mixins.has("mixins"));
+    }
+
+    private static boolean contains(JsonArray values, String expected) {
+        return StreamSupport.stream(values.spliterator(), false)
+                .anyMatch(value -> expected.equals(value.getAsString()));
     }
 
     private static void assertDependency(TomlArray dependencies, String modId, String versionRange) {

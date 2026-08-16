@@ -66,22 +66,32 @@
     "slotsPerRow": 18,
     "header": {
       "texture": "guis/ae2wideterminal/crafting_wide.png",
+      "textureWidth": 357,
+      "textureHeight": 256,
       "srcRect": [0, 0, 357, 17]
     },
     "firstRow": {
       "texture": "guis/ae2wideterminal/crafting_wide.png",
+      "textureWidth": 357,
+      "textureHeight": 256,
       "srcRect": [0, 17, 357, 18]
     },
     "row": {
       "texture": "guis/ae2wideterminal/crafting_wide.png",
+      "textureWidth": 357,
+      "textureHeight": 256,
       "srcRect": [0, 35, 357, 18]
     },
     "lastRow": {
       "texture": "guis/ae2wideterminal/crafting_wide.png",
+      "textureWidth": 357,
+      "textureHeight": 256,
       "srcRect": [0, 53, 357, 18]
     },
     "bottom": {
       "texture": "guis/ae2wideterminal/wtlib_extras_wide.png",
+      "textureWidth": 362,
+      "textureHeight": 256,
       "srcRect": [0, 0, 362, 177]
     }
   },
@@ -96,9 +106,9 @@
       "hideEdge": true
     },
     "search": {
-      "left": 80,
+      "left": 247,
       "top": 4,
-      "width": 251,
+      "width": 89,
       "height": 12
     },
     "clearCraftingGrid": {
@@ -108,6 +118,18 @@
     "clearToPlayerInv": {
       "left": 226,
       "bottom": 167
+    },
+    "wirelessTerminalSettingsButton": {
+      "right": 165,
+      "bottom": 111
+    },
+    "magnetCardMenuButton": {
+      "right": 147,
+      "bottom": 111
+    },
+    "trashButton": {
+      "right": 129,
+      "bottom": 111
     },
     "player": {
       "left": 133,

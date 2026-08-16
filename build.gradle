@@ -57,22 +57,53 @@ repositories {
         url = 'https://repo.spongepowered.org/repository/maven-public/'
     }
     flatDir {
-        dirs file(System.getenv('AE2WTLIB_DIR') ?:
-                'C:/Users/19654/Desktop/.minecraft/versions/GTL/mods')
+        dirs file(System.getenv('AE2WTLIB_DIR') ?: "${projectDir}/local-mods"),
+                file("${projectDir}/work/runtime-mods")
     }
 }
 
-def ae2wtlibJar = file((System.getenv('AE2WTLIB_DIR') ?:
-        'C:/Users/19654/Desktop/.minecraft/versions/GTL/mods') +
+def localModsDir = file(System.getenv('AE2WTLIB_DIR') ?: "${projectDir}/local-mods")
+def ae2wtlibJar = file(localModsDir.path +
         "/ae2wtlib-${ae2wtlib_version}-forge.jar")
 if (!ae2wtlibJar.exists()) {
-    throw new GradleException('Set AE2WTLIB_DIR to the directory containing ae2wtlib-15.3.3-forge.jar')
+    throw new GradleException(
+            'Set AE2WTLIB_DIR or place ae2wtlib-15.3.3-forge.jar in local-mods')
+}
+
+def runtimeMods = [
+        [fileName: 'architectury-9.2.14-forge.jar', dependency: 'blank:architectury:9.2.14-forge'],
+        [fileName: 'cloth-config-11.1.136-forge.jar', dependency: 'blank:cloth-config:11.1.136-forge'],
+        [fileName: 'curios-forge-5.14.1+1.20.1.jar', dependency: 'blank:curios-forge:5.14.1+1.20.1'],
+        [fileName: 'guideme-20.1.14.jar', dependency: 'blank:guideme:20.1.14'],
+        [fileName: 'jei-1.20.1-forge-15.20.0.129.jar', dependency: 'blank:jei:1.20.1-forge-15.20.0.129'],
+        [
+                fileName: 'IMBlocker-4.0.5+1.20.jar',
+                sourceFileName: 'IMBlocker_4.0.5+1.20.jar',
+                dependency: 'blank:IMBlocker:4.0.5+1.20'
+        ]
+]
+def availableRuntimeMods = runtimeMods.findAll { runtimeMod ->
+    def sourcePattern = runtimeMod.sourceFileNamePattern ?: runtimeMod.fileName
+    def runtimeJar = runtimeMod.sourceFileName
+            ? file(localModsDir.path + "/${runtimeMod.sourceFileName}")
+            : (fileTree(localModsDir).matching { include sourcePattern }.files ?: [file(localModsDir.path + "/${sourcePattern}")]).first()
+    if (runtimeJar.exists() && (runtimeMod.sourceFileNamePattern || runtimeMod.sourceFileName)) {
+        def runtimeAlias = file("${projectDir}/work/runtime-mods/${runtimeMod.fileName}")
+        runtimeAlias.parentFile.mkdirs()
+        if (!runtimeAlias.exists() || runtimeAlias.length() != runtimeJar.length()) {
+            runtimeAlias.bytes = runtimeJar.bytes
+        }
+    }
+    return runtimeJar.exists()
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     implementation fg.deobf("appeng:appliedenergistics2-forge:${ae2_version}")
     implementation fg.deobf("blank:ae2wtlib:${ae2wtlib_version}-forge")
+    availableRuntimeMods.each { runtimeMod ->
+        runtimeOnly fg.deobf(runtimeMod.dependency)
+    }
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 

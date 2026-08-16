@@ -84,6 +84,18 @@ def expand_terminal_texture(
     return target
 
 
+def expand_pattern_texture(
+        source: Image.Image,
+        source_screen_width: int,
+        bottom_end: int) -> Image.Image:
+    target = expand_terminal_texture(source, source_screen_width, bottom_end)
+    target.paste((0, 0, 0, 0), (0, NETWORK_BOTTOM, target.width, bottom_end))
+    target.paste(
+        source.crop((0, NETWORK_BOTTOM, source_screen_width, bottom_end)),
+        (HALF_EXTRA_WIDTH, NETWORK_BOTTOM))
+    return target
+
+
 def expand_wtlib_extras(source: Image.Image) -> Image.Image:
     source_screen_width = 200
     bottom_end = 177
@@ -92,7 +104,11 @@ def expand_wtlib_extras(source: Image.Image) -> Image.Image:
     upper_end = 70
     target.paste(source.crop((0, 0, source_screen_width, upper_end)),
                  (HALF_EXTRA_WIDTH, 0))
-    expand_body(target, source, source_screen_width, upper_end, bottom_end)
+    # WTLib's lower crafting panel is a fixed 200px composition. Keep it
+    # centered at the same offset as the upper panel instead of stretching
+    # its edge pixels across the added nine columns.
+    target.paste(source.crop((0, upper_end, source_screen_width, bottom_end)),
+                 (HALF_EXTRA_WIDTH, upper_end))
     return target
 
 
@@ -112,12 +128,15 @@ def main() -> None:
     ae2_textures = {
         "terminal_wide.png": ("assets/ae2/textures/guis/terminal.png", 195, 168),
         "crafting_wide.png": ("assets/ae2/textures/guis/crafting.png", 195, 241),
-        "pattern_wide.png": ("assets/ae2/textures/guis/pattern.png", 195, 249),
     }
     for output_name, (resource_path, screen_width, bottom_end) in ae2_textures.items():
         source = read_png(args.ae2_jar, resource_path)
         expanded = expand_terminal_texture(source, screen_width, bottom_end)
         expanded.save(args.output / output_name, optimize=True)
+
+    pattern = read_png(args.ae2_jar, "assets/ae2/textures/guis/pattern.png")
+    expand_pattern_texture(pattern, 195, 249).save(
+        args.output / "pattern_wide.png", optimize=True)
 
     extras = read_png(args.wtlib_jar, "assets/ae2/textures/wtlib/guis/extras.png")
     expand_wtlib_extras(extras).save(args.output / "wtlib_extras_wide.png", optimize=True)
