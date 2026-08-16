@@ -8,4 +8,3 @@ import appeng.client.gui.style.ScreenStyle;
 public interface WideScreenFactory {
     Screen create(ScreenStyle style);
 }
-

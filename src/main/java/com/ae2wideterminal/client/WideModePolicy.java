@@ -13,4 +13,3 @@ public final class WideModePolicy {
         return preferred && guiWidth >= requiredGuiWidth(screenWidth, toolbarWidth, sideMargin);
     }
 }
-

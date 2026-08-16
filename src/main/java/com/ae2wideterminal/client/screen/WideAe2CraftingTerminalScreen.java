@@ -19,4 +19,3 @@ public final class WideAe2CraftingTerminalScreen extends CraftingTermScreen<Wire
                 nextStyle -> new WideAe2CraftingTerminalScreen(menu, playerInventory, title, nextStyle)));
     }
 }
-

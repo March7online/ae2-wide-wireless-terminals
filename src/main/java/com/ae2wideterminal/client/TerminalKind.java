@@ -40,4 +40,3 @@ public enum TerminalKind {
         return wideScreenWidth;
     }
 }
-

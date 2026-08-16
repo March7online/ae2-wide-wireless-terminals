@@ -17,4 +17,3 @@ plugins {
 }
 
 rootProject.name = 'ae2-wide-wireless-terminals'
-

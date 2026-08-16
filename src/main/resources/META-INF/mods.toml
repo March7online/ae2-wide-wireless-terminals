@@ -30,11 +30,9 @@ mandatory=true
 versionRange="[${ae2_version},15.5.0)"
 ordering="AFTER"
 side="CLIENT"
-
 [[dependencies.${mod_id}]]
 modId="ae2wtlib"
 mandatory=true
 versionRange="[${ae2wtlib_version},15.4.0)"
 ordering="AFTER"
 side="CLIENT"
-

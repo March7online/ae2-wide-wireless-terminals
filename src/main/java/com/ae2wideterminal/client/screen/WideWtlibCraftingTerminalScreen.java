@@ -20,4 +20,3 @@ public final class WideWtlibCraftingTerminalScreen extends WCTScreen {
                 nextStyle -> new WideWtlibCraftingTerminalScreen(menu, playerInventory, title, nextStyle)));
     }
 }
-

@@ -19,4 +19,3 @@ public final class WideWirelessTerminalScreen extends MEStorageScreen<MEStorageM
                 nextStyle -> new WideWirelessTerminalScreen(menu, playerInventory, title, nextStyle)));
     }
 }
-

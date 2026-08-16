@@ -27,4 +27,3 @@ public final class WideTerminalClientConfig {
         WIDE_MODE.save();
     }
 }
-

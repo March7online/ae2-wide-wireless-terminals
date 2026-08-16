@@ -28,4 +28,3 @@ public enum WideModeButtonState {
         return textureV;
     }
 }
-
